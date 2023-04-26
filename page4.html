@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<a href="index.html">home</a>
+	    <a href="index.html">home</a>
             <a href="page1.html">Page 1</a>
             <a href="page2.html">Page 2</a>
             <a href="page3.html">Page 3</a>
-  <a href="page4.html">Page 4</a>
-	<title>Virtual Web Browser</title>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-		}
-		iframe {
-			width: 100%;
-			height: 100%;
-			border: none;
-		}
-	</style>
+            <a href="page4.html">Page 4</a>
+  <title>Virtual Web Browser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #label {
+      padding-top: 50px;
+    }
+
+    #entry {
+      padding: 10px;
+      width: 50%;
+      margin: auto;
+    }
+
+    #button {
+      padding: 10px;
+      margin-top: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
-	<iframe src="https://www.google.com"></iframe>
+  <div id="label">Enter URL, peasant:</div>
+  <input type="text" id="entry" />
+  <button id="button" onclick="openUrl()">Go</button>
+
+  <script>
+    function openUrl() {
+      var url = document.getElementById("entry").value;
+      window.open(url, "_blank");
+    }
+  </script>
 </body>
+
 </html>
