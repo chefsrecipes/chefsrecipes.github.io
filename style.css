@@ -1,0 +1,27 @@
+
+body {
+    background-color: royalblue
+}
+ body a {
+    color: aquamarine;
+}
+body li {
+    font-size: 50px;
+    position: relative; left: 140px; 
+    color: blueviolet;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}

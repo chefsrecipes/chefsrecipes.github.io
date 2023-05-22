@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <style>
+    img {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <link rel="stylesheet"href="style.css">
+  <a href="index.html">home</a>
+            <a href="page1.html">Page 1</a>
+            <a href="page2.html">Page 2</a>
+            <a href="page3.html">Page 3</a>
+            <a href="page4.html">Page 4</a>
+  <h1>Rock Paper Scissors</h1>
+  <p>Choose your move:</p>
+  <div>
+    <button onclick="play('rock')"><img src="rock.png" alt="rock"></button>
+    <button onclick="play('paper')"><img src="paper.png" alt="paper"></button>
+    <button onclick="play('scissors')"><img src="scissors.png" alt="scissors"></button>
+  </div>
+  <div id="hands"></div>
+  <p id="result"></p>
+
+  <script>
+    function play(userMove) {
+      const moves = ['rock', 'paper', 'scissors'];
+      const computerMove = moves[Math.floor(Math.random() * moves.length)];
+
+      // Remove previous hands
+      const handsDiv = document.getElementById("hands");
+      while (handsDiv.firstChild) {
+        handsDiv.removeChild(handsDiv.firstChild);
+      }
+
+      const userHand = document.createElement("img");
+      const computerHand = document.createElement("img");
+      userHand.setAttribute("src", `${userMove}.png`);
+      userHand.setAttribute("alt", userMove);
+      computerHand.setAttribute("src", `${computerMove}.png`);
+      computerHand.setAttribute("alt", computerMove);
+      handsDiv.appendChild(userHand);
+      handsDiv.appendChild(computerHand);
+
+      if (userMove === computerMove) {
+        document.getElementById("result").textContent = "It's a tie!";
+      } else if ((userMove === 'rock' && computerMove === 'scissors') || 
+                 (userMove === 'paper' && computerMove === 'rock') || 
+                 (userMove === 'scissors' && computerMove === 'paper')) {
+        document.getElementById("result").textContent = "You won!";
+      } else {
+        document.getElementById("result").textContent = "I won!";
+      }
+    }
+  </script>
+</body>
+</html>
